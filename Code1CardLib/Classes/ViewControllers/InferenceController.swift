@@ -140,19 +140,19 @@ class InferenceController: UIViewController {
         self.present(alert, animated: true)
     }
 
-    // MARK: Storyboard Segue Handlers
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == "showResult" {
-            if segue.destination is ResultController{
-                let newController = segue.destination as? ResultController
-                newController?.cardYear = cardResult.cardYear
-                newController?.cardMonth = cardResult.cardMonth
-                newController?.cardNumber = cardResult.cardNumber
-            }
-        }
-        
-    }
+//    // MARK: Storyboard Segue Handlers
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//
+//        if segue.identifier == "showResult" {
+//            if segue.destination is ResultController{
+//                let newController = segue.destination as? ResultController
+//                newController?.cardYear = cardResult.cardYear
+//                newController?.cardMonth = cardResult.cardMonth
+//                newController?.cardNumber = cardResult.cardNumber
+//            }
+//        }
+//
+//    }
     
     // MARK: UI
     // 가이드 세팅
@@ -331,12 +331,12 @@ extension InferenceController: CameraFeedManagerDelegate {
         cardResult = (self.modelDataHandler?.runModel(onFrame: pixelBuffer, guideRect: self.guideRect, imageScale: self.imageScaleRatio))
         
         
-        DispatchQueue.main.async {
-            if self.cardResult != nil && self.finish == false {
-                self.finish = true
-                self.performSegue(withIdentifier: "showResult", sender: self)
-            }
-        }
+//        DispatchQueue.main.async {
+//            if self.cardResult != nil && self.finish == false {
+//                self.finish = true
+//                self.performSegue(withIdentifier: "showResult", sender: self)
+//            }
+//        }
     }
     
     /**
